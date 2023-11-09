@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://blsq1s3ltsym3"]
+
+[ext_resource type="Texture2D" uid="uid://0g8hb1kqkpy5" path="res://Resources/Title Screen/bg_anim/ze 1.png" id="1_uac6h"]
+[ext_resource type="Texture2D" uid="uid://c4bxfgfophhvj" path="res://Resources/Title Screen/bg_anim/ze 2.png" id="2_o0x16"]
+[ext_resource type="Texture2D" uid="uid://bsfc4uyven6ox" path="res://Resources/Title Screen/bg_anim/ze 3.png" id="3_1itfs"]
+[ext_resource type="Texture2D" uid="uid://bo6p0fwyxs4xl" path="res://Resources/Title Screen/bg_anim/ze 4.png" id="4_wkf1v"]
+[ext_resource type="Texture2D" uid="uid://7jh8c5kcbv8" path="res://Resources/Title Screen/bg_anim/ze 5.png" id="5_6lb72"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uac6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o0x16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1itfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wkf1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6lb72")
+}],
+"loop": true,
+"name": &"bg_anim",
+"speed": 10.0
+}]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4omvkqrn6kl3"]
+
+[ext_resource type="Script" path="res://Resources/UI/options_ui.cs" id="1_agvpp"]
+[ext_resource type="FontFile" uid="uid://b24e2xqkjdnve" path="res://Resources/Fonts/PixelifySans-Regular.ttf" id="1_ufmec"]
+[ext_resource type="PackedScene" uid="uid://dtnulvfaxywbm" path="res://Resources/UI/keybinding_buttons/button.tscn" id="2_j40hx"]
+
+[sub_resource type="Theme" id="Theme_vtf3v"]
+default_font = ExtResource("1_ufmec")
+default_font_size = 12
+
+[node name="options_menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = -200.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agvpp")
+metadata/_edit_group_ = true
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vtf3v")
+color = Color(0.231373, 0.231373, 0.231373, 0.196078)
+
+[node name="options_tabs" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/side_margin = 4
+theme_override_fonts/font = ExtResource("1_ufmec")
+theme_override_font_sizes/font_size = 11
+tab_alignment = 1
+all_tabs_in_front = true
+
+[node name="Audio_Video" type="TabBar" parent="options_tabs"]
+layout_mode = 2
+
+[node name="Keybinds" type="TabBar" parent="options_tabs"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="options_tabs/Keybinds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="options_tabs/Keybinds/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options_tabs/Keybinds/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="actionlist" type="VBoxContainer" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Button" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button2" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button3" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button4" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button5" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button6" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button7" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Button8" parent="options_tabs/Keybinds/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/actionlist" instance=ExtResource("2_j40hx")]
+layout_mode = 2
+
+[node name="Pause Menu" type="TabBar" parent="options_tabs"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0.588235)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 0.588235)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options_tabs/Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="options_tabs/Pause Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="resume" type="Button" parent="options_tabs/Pause Menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_ufmec")
+theme_override_font_sizes/font_size = 19
+text = "TOP BUTTON"
+
+[node name="save" type="Button" parent="options_tabs/Pause Menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_ufmec")
+theme_override_font_sizes/font_size = 19
+text = "Save File"
+
+[node name="mainmenu" type="Button" parent="options_tabs/Pause Menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_ufmec")
+theme_override_font_sizes/font_size = 19
+text = "Main Menu"

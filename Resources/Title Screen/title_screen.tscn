@@ -1,0 +1,204 @@
+[gd_scene load_steps=16 format=3 uid="uid://bo2iomvxjxkud"]
+
+[ext_resource type="SpriteFrames" uid="uid://blsq1s3ltsym3" path="res://Resources/Title Screen/bganim.tres" id="1_mpsq0"]
+[ext_resource type="Texture2D" uid="uid://bomxlprj2dnns" path="res://Resources/Title Screen/PLAY.png" id="3_dvlhk"]
+[ext_resource type="Texture2D" uid="uid://xg3p4iq3vl0b" path="res://Resources/Player/Male_Character_walking.png" id="4_aq0h8"]
+[ext_resource type="Texture2D" uid="uid://b0luaurrq80sh" path="res://Resources/Title Screen/OPTIONS.png" id="4_tbj4o"]
+[ext_resource type="Texture2D" uid="uid://b18a3q2ru6imv" path="res://Resources/Title Screen/QUIT.png" id="5_rp8y4"]
+[ext_resource type="Script" path="res://Resources/Title Screen/title_scripts/play.cs" id="5_vhj3x"]
+[ext_resource type="Texture2D" uid="uid://ddebep0qcunga" path="res://Resources/Title Screen/STARBLADE_TITLE.png" id="6_fhxn7"]
+[ext_resource type="Script" path="res://Resources/Title Screen/title_scripts/options.cs" id="8_6o0pt"]
+[ext_resource type="AudioStream" uid="uid://r4hlykkhbuuc" path="res://Resources/SFX/Beep.mp3" id="10_bvf51"]
+[ext_resource type="Script" path="res://Resources/Title Screen/title_scripts/quit.cs" id="10_lmvwc"]
+[ext_resource type="AudioStream" uid="uid://chmwonoo3i51t" path="res://Resources/Music/Title_FIRSTTIME_-_102923_11.00_PM.mp3" id="12_0j4yr"]
+
+[sub_resource type="Animation" id="Animation_ki4s0"]
+resource_name = "Begin"
+length = 10.0
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 0, 1, 2, 1, 2, 1, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(168, 150), Vector2(168, 150), Vector2(168, 150), Vector2(168, 170), Vector2(168, 190), Vector2(168, 210), Vector2(168, 230), Vector2(168, 250), Vector2(168, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_41rv5"]
+resource_name = "Idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_djtrk"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bvvpn"]
+_data = {
+"Begin": SubResource("Animation_ki4s0"),
+"Idle": SubResource("Animation_41rv5"),
+"RESET": SubResource("Animation_djtrk")
+}
+
+[node name="Title Screen" type="Node2D"]
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+sprite_frames = ExtResource("1_mpsq0")
+animation = &"bg_anim"
+frame_progress = 0.690247
+metadata/_edit_lock_ = true
+
+[node name="StarbladeTitle" type="Sprite2D" parent="."]
+position = Vector2(131, 31)
+texture = ExtResource("6_fhxn7")
+
+[node name="Male_player" type="Sprite2D" parent="."]
+position = Vector2(168, 150)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_aq0h8")
+hframes = 5
+vframes = 4
+frame = 8
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="play_b" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 65.0
+offset_right = 81.0
+offset_bottom = 89.0
+mouse_force_pass_scroll_events = false
+theme_override_colors/icon_pressed_color = Color(0, 0.929412, 0.486275, 1)
+icon = ExtResource("3_dvlhk")
+flat = true
+icon_alignment = 1
+script = ExtResource("5_vhj3x")
+
+[node name="click" type="AudioStreamPlayer" parent="GUI/play_b"]
+stream = ExtResource("10_bvf51")
+volume_db = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/play_b"]
+root_node = NodePath("../../../Male_player")
+libraries = {
+"": SubResource("AnimationLibrary_bvvpn")
+}
+
+[node name="options_b" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 94.0
+offset_right = 106.0
+offset_bottom = 118.0
+theme_override_colors/icon_pressed_color = Color(0, 0.929412, 0.486275, 1)
+icon = ExtResource("4_tbj4o")
+flat = true
+icon_alignment = 1
+script = ExtResource("8_6o0pt")
+
+[node name="click" type="AudioStreamPlayer" parent="GUI/options_b"]
+stream = ExtResource("10_bvf51")
+volume_db = 5.0
+
+[node name="quit_b" type="Button" parent="GUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -45.0
+offset_right = 80.0
+offset_bottom = -21.0
+grow_vertical = 0
+theme_override_colors/icon_pressed_color = Color(0, 0.929412, 0.486275, 1)
+icon = ExtResource("5_rp8y4")
+flat = true
+icon_alignment = 1
+script = ExtResource("10_lmvwc")
+
+[node name="click" type="AudioStreamPlayer" parent="GUI/quit_b"]
+stream = ExtResource("10_bvf51")
+volume_db = 5.0
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0j4yr")
+volume_db = -15.306
+autoplay = true
+
+[connection signal="pressed" from="GUI/play_b" to="GUI/play_b" method="pressed"]
+[connection signal="pressed" from="GUI/options_b" to="GUI/options_b" method="pressed"]
+[connection signal="pressed" from="GUI/quit_b" to="GUI/quit_b" method="_whenpressed"]
+[connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
